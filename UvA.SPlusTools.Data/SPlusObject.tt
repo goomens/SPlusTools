@@ -1,0 +1,13 @@
+﻿using UvA.SPlusTools.Data.Entities;
+<#@ include file=".\Base.ttinclude" #>
+namespace UvA.SPlusTools.Data
+{
+    public abstract partial class SPlusObject
+    {
+<# 
+	RefProperty("Department", "Department");
+	Collection("Tags", "Tag", "AssociatedTags");
+	ClearIndent(); WriteLine("");
+#>
+	}
+}

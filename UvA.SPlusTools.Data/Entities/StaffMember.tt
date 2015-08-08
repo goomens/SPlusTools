@@ -1,0 +1,11 @@
+﻿<#@ include file=".\BaseStart.ttinclude" #>
+<# 
+	Property("Email", "string");
+	Property("PartTime", "bool");
+	RefProperty("Zone", "Zone");
+	RefProperty("BaseAvailability", "PeriodInYearPattern");
+	RefProperty("NamedAvailability", "AvailabilityPattern", "AvailabilityPattern");
+    Collection("AvoidConcurrencyWith", "StaffMember");
+	Collection("SharedWith", "Department", "SharedWithDepartments");
+#>
+<#@ include file=".\BaseEnd.ttinclude" #>

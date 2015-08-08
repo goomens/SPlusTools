@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D31CFEB1-F518-470B-BBAA-7B2AF082E80D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UvA.SPlusTools.Data</RootNamespace>
+    <AssemblyName>UvA.SPlusTools.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Booking\SuitabilityInfo.cs" />
+    <Compile Include="Booking\ZoneInfo.cs" />
+    <Compile Include="Entities\Activity.cs" />
+    <Compile Include="Entities\Activity.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Activity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ActivityGroup.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActivityGroup.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ActivityType.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActivityType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AvailabilityPattern.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AvailabilityPattern.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\College.cs" />
+    <Compile Include="Entities\College.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Department.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Department.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\IResourceObject.cs" />
+    <Compile Include="Entities\Location.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Location.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LocationGroup.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationGroup.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Module.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Module.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Pattern.cs" />
+    <Compile Include="Entities\StudentSet.generated.cs">
+      <DependentUpon>StudentSet.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entities\StaffMember1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffMember.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StaffMemberGroup.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffMemberGroup.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Suitability.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Suitability.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Tag.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tag.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Zone.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zone.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryTool.cs" />
+    <Compile Include="ResourceRequirement.cs" />
+    <Compile Include="SplusCollection.cs" />
+    <Compile Include="SplusObject.cs" />
+    <Compile Include="SPlusObject.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPlusObject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPlusTask.cs" />
+    <Compile Include="Tasks\AddTagsTask.cs" />
+    <Compile Include="Tasks\CopyResourceInfoTask.cs" />
+    <Compile Include="ITimeObject.cs" />
+    <Compile Include="Booking\LocationInfo.cs" />
+    <Compile Include="Booking\BookingTool.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Base.ttinclude" />
+    <None Include="Entities\Activity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Activity.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\ActivityGroup.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ActivityGroup.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\ActivityType.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ActivityType.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\AvailabilityPattern.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AvailabilityPattern.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\BaseEnd.ttinclude" />
+    <None Include="Entities\BaseStart.ttinclude" />
+    <None Include="Entities\College.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>College.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Department.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Department.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Location.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Location.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\LocationGroup.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LocationGroup.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Module.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Module.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\StaffMemberGroup.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StaffMemberGroup.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Suitability.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Suitability.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\StaffMember.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StaffMember1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Tag.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Tag.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Zone.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Zone.generated.cs</LastGenOutput>
+    </None>
+    <None Include="SPlusObject.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SPlusObject.generated.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\StudentSet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StudentSet.generated.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UvA.Utilities\UvA.Utilities.csproj">
+      <Project>{f27271b3-232f-45c1-8c46-daad259ca374}</Project>
+      <Name>UvA.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

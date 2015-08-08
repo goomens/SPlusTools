@@ -1,0 +1,8 @@
+﻿<#@ include file=".\BaseStart.ttinclude" #>
+<# 
+	Collection("PrimaryLocations", "Location");
+	Collection("PrimaryStaff", "StaffMember");
+	Collection("OtherLocations", "Location");
+	Collection("OtherStaff", "StaffMember");
+#>
+<#@ include file=".\BaseEnd.ttinclude" #> 

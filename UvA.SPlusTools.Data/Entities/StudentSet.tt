@@ -1,0 +1,10 @@
+﻿<#@ include file=".\BaseStart.ttinclude" #>
+<# 
+	RefProperty("Zone", "Zone");
+	RefProperty("BaseAvailability", "PeriodInYearPattern");
+	RefProperty("NamedAvailability", "AvailabilityPattern", "AvailabilityPattern");
+    Collection("AvoidConcurrencyWith", "StaffMember");
+	Collection("SharedWith", "Department", "SharedWithDepartments");
+	Collection("Modules", "Module");
+#>
+<#@ include file=".\BaseEnd.ttinclude" #>

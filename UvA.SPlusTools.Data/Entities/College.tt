@@ -1,0 +1,27 @@
+﻿using UvA.SPlusTools.Data.Entities;
+<#@ include file="..\Base.ttinclude" #>
+namespace UvA.SPlusTools.Data.Entities
+{
+    public partial class College
+    {
+<# 
+	Property("StartDate", "DateTime");
+	Property("PeriodsPerDay", "int");
+	Property("PeriodsPerYear", "int");
+	Property("WeeksPerYear", "int");
+	Collection("Activities", "Activity");
+	Collection("Modules", "Module");
+	Collection("ActivityGroups", "ActivityGroup");
+	Collection("ActivityTypes", "ActivityType");
+	Collection("Departments", "Department");
+	Collection("StaffMembers", "StaffMember");
+	Collection("Locations", "Location");
+	Collection("StudentSets", "StudentSet");
+	Collection("Suitabilities", "Suitability");
+	Collection("Zones", "Zone");
+	Collection("AvailabilityPatterns", "AvailabilityPattern");
+	Collection("Tags", "Tag");
+	ClearIndent(); WriteLine("");
+#>
+	}
+}

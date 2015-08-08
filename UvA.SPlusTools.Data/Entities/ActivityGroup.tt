@@ -1,0 +1,5 @@
+﻿<#@ include file=".\BaseStart.ttinclude" #>
+<# 
+	Collection("Members", "Activity");
+#>
+<#@ include file=".\BaseEnd.ttinclude" #> 

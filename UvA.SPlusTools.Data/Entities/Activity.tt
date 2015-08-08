@@ -1,0 +1,13 @@
+﻿<#@ include file=".\BaseStart.ttinclude" #>
+<# 
+	RefProperty("ActivityType", "ActivityType");
+	RefProperty("Zone", "Zone");
+	RefProperty("NamedAvailability", "AvailabilityPattern", "AvailabilityPattern");
+	RefProperty("BaseAvailability", "PeriodInYearPattern");
+	Property("Duration", "int");
+	Property("SuggestedPeriodInDay", "int");
+	RefProperty("Module", "Module");
+	Property("PlannedSize", "int");
+	RefProperty("WeekPattern", "WeekInYearPattern");
+#>
+<#@ include file=".\BaseEnd.ttinclude" #>

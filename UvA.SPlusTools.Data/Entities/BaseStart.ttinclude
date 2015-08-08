@@ -1,0 +1,20 @@
+﻿<#@ include file="..\Base.ttinclude" #>
+<# 
+  string objName = Path.GetFileNameWithoutExtension(this.Host.TemplateFile);
+#>
+namespace UvA.SPlusTools.Data.Entities
+{
+	public partial class <#= objName #> : SPlusObject
+	{
+		public <#= objName #>(College col) 
+		{
+			College = col;
+			Object = col.Object.Create<#= objName #>();
+			College.GetObject<<#= objName #>>(Object);
+		}
+
+		public <#= objName #>(College col, dynamic obj) 
+		{
+			College = col;
+			Object = obj;
+		}

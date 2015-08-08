@@ -1,0 +1,78 @@
+﻿using System;
+<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension="generated.cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#+
+	void Property(string name, string typeName, string sourceName = null)
+	{
+		if (sourceName == null)
+			sourceName = name;
+		#>
+		public <#= typeName #> <#= name #> 
+		{
+			get { return Object.<#= sourceName #>; }
+			set { Object.<#= sourceName #> = value; }
+		}
+		<#+
+	}
+
+	void RefProperty(string name, string typeName, string sourceName = null)
+	{
+		if (sourceName == null)
+			sourceName = name;
+		#>
+
+		<#= typeName #> _<#= name #>;
+		public <#= typeName #> <#= name #> 
+		{
+			get 
+			{
+				if (_<#= name #> == null)
+				<#+ if (typeName.EndsWith("Pattern") && typeName.Contains("In")) 
+				{
+				#>
+					_<#= name #> = new <#= typeName #>(College, Object.<#= sourceName #>); 
+				<#+ 
+				}
+				else
+                { 
+				#>
+					_<#= name #> = College.GetObject<<#= typeName #>>(Object.<#= sourceName #>); 
+                <#+ 
+				}
+				#>
+				return _<#= name #>; 
+			}
+			set 
+			{
+			    _<#= name #> = value;
+				Object.<#= sourceName #> = value == null ? null : value.Object;
+			}
+		}
+		<#+
+	}
+
+	void Collection(string name, string typeName, string sourceName = null)
+	{
+		if (sourceName == null)
+			sourceName = name;
+		string col = Path.GetFileNameWithoutExtension(this.Host.TemplateFile) == "College" ? "this" : "College";
+		#>
+		SPlusCollection<<#= typeName #>> _<#= name #>;
+		public SPlusCollection<<#= typeName #>> <#= name #> 
+		{
+			get 
+			{
+				if (_<#= name #> == null)
+					_<#= name #> = new SPlusCollection<<#= typeName #>>(<#= col #>, Object.<#= sourceName #>); 
+				return _<#= name #>; 
+			}
+		}
+		<#+
+	}
+#>
