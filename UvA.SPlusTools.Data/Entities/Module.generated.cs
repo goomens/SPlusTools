@@ -18,6 +18,31 @@ namespace UvA.SPlusTools.Data.Entities
 			Object = obj;
 		}
 
-
+		public int PlannedSize 
+		{
+			get { return Object.PlannedSize; }
+			set { Object.PlannedSize = value; }
+		}
+				SPlusCollection<ProgrammeOfStudy> _ProgrammesOfStudyOptionalFor;
+		public SPlusCollection<ProgrammeOfStudy> ProgrammesOfStudyOptionalFor 
+		{
+			get 
+			{
+				if (_ProgrammesOfStudyOptionalFor == null)
+					_ProgrammesOfStudyOptionalFor = new SPlusCollection<ProgrammeOfStudy>(College, Object.ProgrammesOfStudyOptionalFor); 
+				return _ProgrammesOfStudyOptionalFor; 
+			}
+		}
+				SPlusCollection<ProgrammeOfStudy> _ProgrammesOfStudyMandatoryFor;
+		public SPlusCollection<ProgrammeOfStudy> ProgrammesOfStudyMandatoryFor 
+		{
+			get 
+			{
+				if (_ProgrammesOfStudyMandatoryFor == null)
+					_ProgrammesOfStudyMandatoryFor = new SPlusCollection<ProgrammeOfStudy>(College, Object.ProgrammesOfStudyMandatoryFor); 
+				return _ProgrammesOfStudyMandatoryFor; 
+			}
+		}
+		
 	}
 }
