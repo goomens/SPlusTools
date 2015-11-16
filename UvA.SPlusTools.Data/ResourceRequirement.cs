@@ -9,6 +9,11 @@ namespace UvA.SPlusTools.Data
 {
     public enum ResourceRequirementType { None = 0 , Preset = 1, Wildcard = 2 }
 
+    /// <summary>
+    /// Describes the resource requirement of an Activity for resources of type T
+    /// Note: changes are only written to S+ when the Set method is called
+    /// </summary>
+    /// <typeparam name="T">Resource type</typeparam>
     public class ResourceRequirement<T> where T : SPlusObject, IResourceObject
     {
         Activity Activity;
@@ -29,6 +34,9 @@ namespace UvA.SPlusTools.Data
         }
 
         SPlusCollection<T> _Resources;
+        /// <summary>
+        /// The required resources, ignored if type is not Preset
+        /// </summary>
         public SPlusCollection<T> Resources
         {
             get
@@ -39,6 +47,11 @@ namespace UvA.SPlusTools.Data
             }
         }
         
+        /// <summary>
+        /// Writes the resource info to S+
+        /// </summary>
+        /// <param name="type">Requirement type</param>
+        /// <param name="number">Number of suitabilitiies, ignored if type is not Wildcard</param>
         public void Set(ResourceRequirementType type, int number = 0)
         {
             if (type == ResourceRequirementType.None)

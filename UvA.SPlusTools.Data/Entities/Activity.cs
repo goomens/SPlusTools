@@ -23,12 +23,24 @@ namespace UvA.SPlusTools.Data.Entities
         }
 
         ResourceRequirement<Location> _LocationRequirement;
+        /// <summary>
+        /// Describes the location requirement of an Activity
+        /// Note: changes are only written to S+ when the Set method is called
+        /// </summary>
         public ResourceRequirement<Location> LocationRequirement { get { return _LocationRequirement = _LocationRequirement ?? new ResourceRequirement<Location>(this); } }
 
         ResourceRequirement<StaffMember> _StaffRequirement;
+        /// <summary>
+        /// Describes the staff requirement of an Activity
+        /// Note: changes are only written to S+ when the Set method is called
+        /// </summary>
         public ResourceRequirement<StaffMember> StaffRequirement { get { return _StaffRequirement = _StaffRequirement ?? new ResourceRequirement<StaffMember>(this); } }
 
         ResourceRequirement<StudentSet> _StudentSetRequirement;
+        /// <summary>
+        /// Describes the student set requirement of an Activity
+        /// Note: changes are only written to S+ when the Set method is called
+        /// </summary>
         public ResourceRequirement<StudentSet> StudentSetRequirement { get { return _StudentSetRequirement = _StudentSetRequirement ?? new ResourceRequirement<StudentSet>(this); } }
 
         public TimeSpan DurationTime { get { return TimeSpan.FromMinutes(Duration * College.PeriodLength); } set { Duration = (int)Math.Ceiling(value.TotalMinutes / College.PeriodLength); } }
@@ -43,9 +55,19 @@ namespace UvA.SPlusTools.Data.Entities
                 _Suitabilities.Add(type, new SPlusCollection<Suitability>(College, Object.GetSuitabilities(type)));
             return _Suitabilities[type];
         }
-        
+
+        /// <summary>
+        /// Required location suitabilities for this Activity
+        /// Note: changes are only written to S+ when the SetSuitabilities method is called
+        /// </summary>
         public SPlusCollection<Suitability> LocationSuitabilities => GetSuitabilities(ResourceType.Location);
+
+        /// <summary>
+        /// Required staff suitabilities for this Activity
+        /// Note: changes are only written to S+ when the SetSuitabilities method is called
+        /// </summary>
         public SPlusCollection<Suitability> StaffSuitabilities => GetSuitabilities(ResourceType.Staff);
+
         public void SaveSuitabilities(ResourceType type) => Object.SetSuitabilities(type, GetSuitabilities(type).Source);
 
         public bool Schedule()
