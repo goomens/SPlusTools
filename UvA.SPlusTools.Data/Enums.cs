@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace UvA.SPlusTools.Data
 {
-    public enum ResourceType { Location, Staff }
+    public enum ResourceType { Location = 1, Staff = 0, StudentSet = 3 }
 }

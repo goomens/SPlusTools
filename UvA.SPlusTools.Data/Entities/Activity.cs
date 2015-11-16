@@ -33,6 +33,21 @@ namespace UvA.SPlusTools.Data.Entities
 
         public TimeSpan DurationTime { get { return TimeSpan.FromMinutes(Duration * College.PeriodLength); } set { Duration = (int)Math.Ceiling(value.TotalMinutes / College.PeriodLength); } }
 
+        Dictionary<ResourceType, SPlusCollection<Suitability>> _Suitabilities;
+
+        SPlusCollection<Suitability> GetSuitabilities(ResourceType type)
+        {
+            if (_Suitabilities == null)
+                _Suitabilities = new Dictionary<ResourceType, SPlusCollection<Suitability>>();
+            if (!_Suitabilities.ContainsKey(type))
+                _Suitabilities.Add(type, new SPlusCollection<Suitability>(College, Object.GetSuitabilities(type)));
+            return _Suitabilities[type];
+        }
+        
+        public SPlusCollection<Suitability> LocationSuitabilities => GetSuitabilities(ResourceType.Location);
+        public SPlusCollection<Suitability> StaffSuitabilities => GetSuitabilities(ResourceType.Staff);
+        public void SaveSuitabilities(ResourceType type) => Object.SetSuitabilities(type, GetSuitabilities(type).Source);
+
         public bool Schedule()
         {
             Object.ScheduleMany();
