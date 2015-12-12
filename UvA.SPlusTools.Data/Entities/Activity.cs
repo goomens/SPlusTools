@@ -85,5 +85,18 @@ namespace UvA.SPlusTools.Data.Entities
                 WeekPattern = new WeekInYearPattern(College) { Weeks = new int[] { College.GetWeek(value) } };
             }
         }
+
+        #region Request booking
+
+        public bool CancelRequest() => Object.CancelRequest();
+        public bool DeclineRequest() => Object.DeclineRequest();
+        public bool GrantRequest(string granter) => Object.GrantRequest(granter);
+        public bool MakeARequest(int periodInWeekPattern, dynamic res, dynamic resourceTypesToSkip, string requester) => Object.MakeARequest(periodInWeekPattern, res, resourceTypesToSkip, requester);
+        public bool ScheduleWithPossibleRequest(string requester, bool request) => Object.ScheduleWithPossibleRequest(requester, request);
+
+        public string Requester => Object.Requester;
+        public RequestStatus RequestStatus => (RequestStatus)(int)Object.RequestStatus;
+
+        #endregion
     }
 }
