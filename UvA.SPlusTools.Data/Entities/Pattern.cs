@@ -44,6 +44,16 @@ namespace UvA.SPlusTools.Data.Entities
             College = college;
             Object = college.Object.CreatePeriodInYearPattern();
         }
+
+        /// <summary>
+        /// Sets the pattern to be a continuous range
+        /// </summary>
+        /// <param name="startPeriod">Starting period (inclusive)</param>
+        /// <param name="endPeriod">End period (exclusive)</param>
+        public void SetRange(int startPeriod, int endPeriod)
+        {
+            PatternAsArray = Tools.Range(0, College.PeriodsPerYear - 1).Select(p => p >= startPeriod && p < endPeriod).ToArray();
+        }
     }
 
     public class WeekInYearPattern : Pattern
@@ -60,6 +70,16 @@ namespace UvA.SPlusTools.Data.Entities
         {
             College = college;
             Object = college.Object.CreateWeekInYearPattern();
+        }
+
+        /// <summary>
+        /// Sets the pattern to be a continuous range
+        /// </summary>
+        /// <param name="startWeek">Starting week (inclusive)</param>
+        /// <param name="endWeek">End week (inclusive)</param>
+        public void SetRange(int startWeek, int endWeek)
+        {
+            PatternAsArray = Tools.Range(0, College.WeeksPerYear - 1).Select(p => p >= startWeek && p <= endWeek).ToArray();
         }
     }
 }

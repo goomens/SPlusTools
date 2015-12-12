@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UvA.Utilities;
 
 namespace UvA.SPlusTools.Data.Entities
 {
@@ -38,11 +39,37 @@ namespace UvA.SPlusTools.Data.Entities
             return (T)Objects[id];
         }
 
-        public Activity CreateActivity(DateTime date, double startTime, double endTime, Location loc)
+        /// <summary>
+        /// Creates a PeriodInYearPattern based on the specified values
+        /// </summary>
+        /// <param name="startWeek">Starting week, zero-indexed</param>
+        /// <param name="endWeek">End week, inclusive</param>
+        /// <returns></returns>
+        public PeriodInYearPattern GeneratePeriodInYearPattern(int startWeek, int endWeek)
         {
-            Activity act = new Activity(this);
+            var pat = new PeriodInYearPattern(this);
+            pat.SetRange(startWeek * PeriodsPerDay * 7, endWeek * PeriodsPerDay * 7);
+            return pat;
+        }
 
-            return act;
+        public void Writeback()
+        {
+            if (!Object.Application.SDB.IsConnected)
+                Object.Application.SDB.Connect();
+            Object.Application.SDB.WriteBack();
+        }
+
+        /// <summary>
+        /// Creates a WeekInYearPattern based on the specified values
+        /// </summary>
+        /// <param name="startWeek">Starting week, zero-indexed</param>
+        /// <param name="endWeek">End week, inclusive</param>
+        /// <returns></returns>
+        public WeekInYearPattern GenerateWeekInYearPattern(int startWeek, int endWeek)
+        {
+            var pat = new WeekInYearPattern(this);
+            pat.SetRange(startWeek, endWeek);
+            return pat;
         }
     }
 }
