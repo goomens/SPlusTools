@@ -52,6 +52,10 @@ namespace UvA.SPlusTools.Data.Entities
             return pat;
         }
 
+        public bool IsConnected => Object.Application.SDB.IsConnected;
+        public void Connect() => Object.Application.SDB.Connect();
+        public void Disconnect() => Object.Application.SDB.Disconnect();
+
         public void Writeback()
         {
             if (!Object.Application.SDB.IsConnected)
