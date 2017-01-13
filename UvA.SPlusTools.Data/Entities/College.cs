@@ -56,6 +56,8 @@ namespace UvA.SPlusTools.Data.Entities
         public void Connect() => Object.Application.SDB.Connect();
         public void Disconnect() => Object.Application.SDB.Disconnect();
 
+        public void Save(string path) => Object.Application.SaveImage(path);
+
         public void Writeback()
         {
             if (!Object.Application.SDB.IsConnected)
