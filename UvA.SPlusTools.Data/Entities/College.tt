@@ -21,6 +21,7 @@ namespace UvA.SPlusTools.Data.Entities
 	Collection("Zones", "Zone");
 	Collection("AvailabilityPatterns", "AvailabilityPattern");
 	Collection("Tags", "Tag");
+	Collection("ProgrammesOfStudy", "ProgrammeOfStudy");
 	ClearIndent(); WriteLine("");
 #>
 	}

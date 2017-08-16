@@ -18,6 +18,26 @@ namespace UvA.SPlusTools.Data.Entities
 			Object = obj;
 		}
 
-
+		SPlusCollection<Module> _MandatoryModules;
+		public SPlusCollection<Module> MandatoryModules 
+		{
+			get 
+			{
+				if (_MandatoryModules == null)
+					_MandatoryModules = new SPlusCollection<Module>(College, Object.MandatoryModules); 
+				return _MandatoryModules; 
+			}
+		}
+				SPlusCollection<Module> _OptionalModules;
+		public SPlusCollection<Module> OptionalModules 
+		{
+			get 
+			{
+				if (_OptionalModules == null)
+					_OptionalModules = new SPlusCollection<Module>(College, Object.OptionalModules); 
+				return _OptionalModules; 
+			}
+		}
+		
 	}
 }

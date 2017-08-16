@@ -146,6 +146,16 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Tags; 
 			}
 		}
+				SPlusCollection<ProgrammeOfStudy> _ProgrammesOfStudy;
+		public SPlusCollection<ProgrammeOfStudy> ProgrammesOfStudy 
+		{
+			get 
+			{
+				if (_ProgrammesOfStudy == null)
+					_ProgrammesOfStudy = new SPlusCollection<ProgrammeOfStudy>(this, Object.ProgrammesOfStudy); 
+				return _ProgrammesOfStudy; 
+			}
+		}
 		
 	}
 }
