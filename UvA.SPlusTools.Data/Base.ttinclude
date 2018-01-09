@@ -61,7 +61,8 @@
 	{
 		if (sourceName == null)
 			sourceName = name;
-		string col = Path.GetFileNameWithoutExtension(this.Host.TemplateFile) == "College" ? "this" : "College";
+		bool isCollege = Path.GetFileNameWithoutExtension(this.Host.TemplateFile) == "College";
+		string col = isCollege ? "this" : "College";
 		#>
 		SPlusCollection<<#= typeName #>> _<#= name #>;
 		public SPlusCollection<<#= typeName #>> <#= name #> 
@@ -74,5 +75,11 @@
 			}
 		}
 		<#+
+		if (isCollege)
+		{
+		#>
+public void Delete<#= typeName #>(<#= typeName #> obj) => Object.Delete<#= typeName #>(obj.Object);
+		<#+
+		}
 	}
 #>
