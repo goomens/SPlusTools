@@ -47,14 +47,24 @@ namespace UvA.SPlusTools.TaskTool
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Fatal error reading configuration file: {0}", ex.Message);
+                Console.WriteLine("Fatal error reading configuration file: {0}", ex.ToString());
+                Console.ReadKey();
                 return;
             }
             for (int i = 0; i < tasks.Length; i++)
             {
                 var task = tasks[i];
                 Console.WriteLine("Executing task {0} ({1})", i + 1, task.GetType().Name);
-                task.Execute();
+                try
+                {
+                    task.Execute();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Fatal error during task execution: {0}", ex.ToString());
+                    Console.ReadKey();
+                    return;
+                }
                 Console.WriteLine("Task {0} completed", i + 1);
                 Console.WriteLine();
             }
