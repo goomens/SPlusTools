@@ -47,7 +47,7 @@ namespace UvA.SPlusTools.Data.Entities
 
         Dictionary<ResourceType, SPlusCollection<Suitability>> _Suitabilities;
 
-        SPlusCollection<Suitability> GetSuitabilities(ResourceType type)
+        public SPlusCollection<Suitability> GetSuitabilities(ResourceType type)
         {
             if (_Suitabilities == null)
                 _Suitabilities = new Dictionary<ResourceType, SPlusCollection<Suitability>>();

@@ -142,6 +142,7 @@
       <DependentUpon>SPlusObject.tt</DependentUpon>
     </Compile>
     <Compile Include="SPlusTask.cs" />
+    <Compile Include="Tasks\EditSuitabilitiesTask.cs" />
     <Compile Include="Tasks\AddTagsTask.cs" />
     <Compile Include="Tasks\CopyResourceInfoTask.cs" />
     <Compile Include="ITimeObject.cs" />

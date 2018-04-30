@@ -12,6 +12,7 @@ namespace UvA.SPlusTools.Data
     [Serializable]
     [XmlInclude(typeof(CopyResourceInfoTask))]
     [XmlInclude(typeof(EditTagsTask))]
+    [XmlInclude(typeof(EditSuitabilitiesTask))]
     public abstract class SPlusTask
     {
         protected TextWriter Log = Console.Out;
