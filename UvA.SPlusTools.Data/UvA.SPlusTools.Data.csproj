@@ -148,6 +148,8 @@
     <Compile Include="ITimeObject.cs" />
     <Compile Include="Booking\LocationInfo.cs" />
     <Compile Include="Booking\BookingTool.cs" />
+    <Compile Include="Tasks\HandleRequestsTask.cs" />
+    <Compile Include="Tasks\MergeLocationsTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Base.ttinclude" />
