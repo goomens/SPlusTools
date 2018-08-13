@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocationGroup.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Module.cs" />
     <Compile Include="Entities\ProgrammeOfStudy.generated.cs">
       <DependentUpon>ProgrammeOfStudy.tt</DependentUpon>
       <AutoGen>True</AutoGen>
