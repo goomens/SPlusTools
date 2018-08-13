@@ -71,7 +71,9 @@ namespace UvA.SPlusTools.Data
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            int c = Count;
+            for (int i = arrayIndex; i < arrayIndex + c; i++)
+                array[i] = this[i - arrayIndex];
         }
 
         public int Count
