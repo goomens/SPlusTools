@@ -22,6 +22,11 @@ namespace UvA.SPlusTools.Data.Entities
             set { SuggestedPeriodInDay = value == null ? -1 : College.TimeToPeriod(value.Value); }
         }
 
+        IEnumerable<T> GetAllocatedResources<T>() where T : SPlusObject, IResourceObject
+            => new SPlusCollection<T>(College, Object.GetResourceAllocation(ResourceRequirement<T>.ResourceIndex));
+
+        public IEnumerable<Location> AllocatedLocations => GetAllocatedResources<Location>();  
+
         ResourceRequirement<Location> _LocationRequirement;
         /// <summary>
         /// Describes the location requirement of an Activity
@@ -76,9 +81,11 @@ namespace UvA.SPlusTools.Data.Entities
             return IsScheduled;
         }
 
+        public IEnumerable<DateTime> ScheduledStartDates => ((object[])Object.ScheduledStartDateTimes).Cast<DateTime>();
+
         public DateTime StartDate
         {
-            get { throw new NotImplementedException(); }
+            get => ScheduledStartDates.FirstOrDefault();
             set
             {
                 SuggestedDaysInWeek = new DayOfWeek[] { value.DayOfWeek };

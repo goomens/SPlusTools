@@ -62,7 +62,7 @@ namespace UvA.SPlusTools.Data
                 Activity.Object.SetResourceRequirement(ResourceIndex, (int)type, Resources.Count, Resources.Source);
         }
 
-        int ResourceIndex
+        internal static int ResourceIndex
         {
             get
             {
