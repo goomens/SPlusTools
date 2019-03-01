@@ -15,6 +15,7 @@ namespace UvA.SPlusTools.Data.Entities
         public TimeSpan StartTime { get; private set; }
         public TimeSpan EndTime { get; private set; }
 
+        public int DaysPerWeek { get; private set; }
 
         Dictionary<string, SPlusObject> Objects;
 
@@ -27,6 +28,7 @@ namespace UvA.SPlusTools.Data.Entities
             if (EndTime.TotalMinutes == 0)
                 EndTime = TimeSpan.FromDays(1);
             PeriodLength = (int)EndTime.Subtract(StartTime).TotalMinutes / PeriodsPerDay;
+            DaysPerWeek = Object.DaysOfWeek.Length;
         }
 
         internal T GetObject<T>(dynamic obj) where T : SPlusObject

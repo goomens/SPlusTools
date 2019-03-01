@@ -82,4 +82,28 @@ namespace UvA.SPlusTools.Data.Entities
             PatternAsArray = Tools.Range(0, College.WeeksPerYear - 1).Select(p => p >= startWeek && p <= endWeek).ToArray();
         }
     }
+
+    public class PeriodInWeekPattern : Pattern
+    {
+        public PeriodInWeekPattern(College college)
+        {
+            College = college;
+            Object = college.Object.CreatePeriodInWeekPattern();
+        }
+
+        /// <summary>
+        /// Sets the pattern to be a continuous range
+        /// </summary>
+        /// <param name="day">Day of week</param>
+        /// <param name="startTime">Start time</param>
+        /// <param name="endTime">End time</param>
+        public void SetRange(DayOfWeek day, TimeSpan startTime, TimeSpan endTime)
+        {
+            int dayIndex = day == DayOfWeek.Sunday ? 6 : ((int)day - 1);
+            PatternAsArray = Tools.Range(0, College.PeriodsPerDay * College.DaysPerWeek - 1)
+                .Select(p => p >= dayIndex * College.PeriodsPerDay && p < (dayIndex + 1) * College.PeriodsPerDay
+                    && College.PeriodToTime(p - dayIndex * College.PeriodsPerDay) >= startTime
+                    && College.PeriodToTime(p - dayIndex * College.PeriodsPerDay) < endTime).ToArray();
+        }
+    }
 }

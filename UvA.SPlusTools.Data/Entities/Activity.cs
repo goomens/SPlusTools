@@ -25,7 +25,7 @@ namespace UvA.SPlusTools.Data.Entities
         IEnumerable<T> GetAllocatedResources<T>() where T : SPlusObject, IResourceObject
             => new SPlusCollection<T>(College, Object.GetResourceAllocation(ResourceRequirement<T>.ResourceIndex));
 
-        public IEnumerable<Location> AllocatedLocations => GetAllocatedResources<Location>();  
+        public IEnumerable<Location> AllocatedLocations => IsScheduled ? GetAllocatedResources<Location>() : new Location[0]; 
 
         ResourceRequirement<Location> _LocationRequirement;
         /// <summary>
@@ -75,13 +75,25 @@ namespace UvA.SPlusTools.Data.Entities
 
         public void SaveSuitabilities(ResourceType type) => Object.SetSuitabilities(type, GetSuitabilities(type).Source);
 
+        public void Reschedule()
+            => Object.RescheduleMany();
+
+        public void Unschedule()
+            => Object.Unschedule();
+
         public bool Schedule()
         {
             Object.ScheduleMany();
             return IsScheduled;
         }
 
-        public IEnumerable<DateTime> ScheduledStartDates => ((object[])Object.ScheduledStartDateTimes).Cast<DateTime>();
+        public bool Schedule(PeriodInWeekPattern pattern)
+        {
+            Object.Schedule(pattern.Object);
+            return IsScheduled;
+        }
+
+        public IEnumerable<DateTime> ScheduledStartDates => IsScheduled ? ((object[])Object.ScheduledStartDateTimes).Cast<DateTime>() : new DateTime[0];
 
         public DateTime StartDate
         {

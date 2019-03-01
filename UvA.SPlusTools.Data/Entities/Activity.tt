@@ -9,5 +9,6 @@
 	RefProperty("Module", "Module");
 	Property("PlannedSize", "int");
 	RefProperty("WeekPattern", "WeekInYearPattern");
+	Collection("SameTimeActivities", "Activity");
 #>
 <#@ include file=".\BaseEnd.ttinclude" #>

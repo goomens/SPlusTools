@@ -129,6 +129,16 @@ namespace UvA.SPlusTools.Data.Entities
 				Object.WeekPattern = value == null ? null : value.Object;
 			}
 		}
+				SPlusCollection<Activity> _SameTimeActivities;
+		public SPlusCollection<Activity> SameTimeActivities 
+		{
+			get 
+			{
+				if (_SameTimeActivities == null)
+					_SameTimeActivities = new SPlusCollection<Activity>(College, Object.SameTimeActivities); 
+				return _SameTimeActivities; 
+			}
+		}
 		
 	}
 }

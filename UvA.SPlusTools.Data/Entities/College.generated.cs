@@ -36,7 +36,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Activities; 
 			}
 		}
-				public void DeleteActivity(Activity obj) => Object.DeleteActivity(obj.Object);
+		public void DeleteActivity(Activity obj) => Object.DeleteActivity(obj.Object);
 				SPlusCollection<Module> _Modules;
 		public SPlusCollection<Module> Modules 
 		{
@@ -47,7 +47,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Modules; 
 			}
 		}
-				public void DeleteModule(Module obj) => Object.DeleteModule(obj.Object);
+		public void DeleteModule(Module obj) => Object.DeleteModule(obj.Object);
 				SPlusCollection<ActivityGroup> _ActivityGroups;
 		public SPlusCollection<ActivityGroup> ActivityGroups 
 		{
@@ -58,7 +58,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _ActivityGroups; 
 			}
 		}
-				public void DeleteActivityGroup(ActivityGroup obj) => Object.DeleteActivityGroup(obj.Object);
+		public void DeleteActivityGroup(ActivityGroup obj) => Object.DeleteActivityGroup(obj.Object);
 				SPlusCollection<ActivityType> _ActivityTypes;
 		public SPlusCollection<ActivityType> ActivityTypes 
 		{
@@ -69,7 +69,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _ActivityTypes; 
 			}
 		}
-				public void DeleteActivityType(ActivityType obj) => Object.DeleteActivityType(obj.Object);
+		public void DeleteActivityType(ActivityType obj) => Object.DeleteActivityType(obj.Object);
 				SPlusCollection<Department> _Departments;
 		public SPlusCollection<Department> Departments 
 		{
@@ -80,7 +80,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Departments; 
 			}
 		}
-				public void DeleteDepartment(Department obj) => Object.DeleteDepartment(obj.Object);
+		public void DeleteDepartment(Department obj) => Object.DeleteDepartment(obj.Object);
 				SPlusCollection<StaffMember> _StaffMembers;
 		public SPlusCollection<StaffMember> StaffMembers 
 		{
@@ -91,7 +91,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _StaffMembers; 
 			}
 		}
-				public void DeleteStaffMember(StaffMember obj) => Object.DeleteStaffMember(obj.Object);
+		public void DeleteStaffMember(StaffMember obj) => Object.DeleteStaffMember(obj.Object);
 				SPlusCollection<Location> _Locations;
 		public SPlusCollection<Location> Locations 
 		{
@@ -102,7 +102,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Locations; 
 			}
 		}
-				public void DeleteLocation(Location obj) => Object.DeleteLocation(obj.Object);
+		public void DeleteLocation(Location obj) => Object.DeleteLocation(obj.Object);
 				SPlusCollection<StudentSet> _StudentSets;
 		public SPlusCollection<StudentSet> StudentSets 
 		{
@@ -113,7 +113,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _StudentSets; 
 			}
 		}
-				public void DeleteStudentSet(StudentSet obj) => Object.DeleteStudentSet(obj.Object);
+		public void DeleteStudentSet(StudentSet obj) => Object.DeleteStudentSet(obj.Object);
 				SPlusCollection<Suitability> _Suitabilities;
 		public SPlusCollection<Suitability> Suitabilities 
 		{
@@ -124,7 +124,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Suitabilities; 
 			}
 		}
-				public void DeleteSuitability(Suitability obj) => Object.DeleteSuitability(obj.Object);
+		public void DeleteSuitability(Suitability obj) => Object.DeleteSuitability(obj.Object);
 				SPlusCollection<Zone> _Zones;
 		public SPlusCollection<Zone> Zones 
 		{
@@ -135,7 +135,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Zones; 
 			}
 		}
-				public void DeleteZone(Zone obj) => Object.DeleteZone(obj.Object);
+		public void DeleteZone(Zone obj) => Object.DeleteZone(obj.Object);
 				SPlusCollection<AvailabilityPattern> _AvailabilityPatterns;
 		public SPlusCollection<AvailabilityPattern> AvailabilityPatterns 
 		{
@@ -146,7 +146,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _AvailabilityPatterns; 
 			}
 		}
-				public void DeleteAvailabilityPattern(AvailabilityPattern obj) => Object.DeleteAvailabilityPattern(obj.Object);
+		public void DeleteAvailabilityPattern(AvailabilityPattern obj) => Object.DeleteAvailabilityPattern(obj.Object);
 				SPlusCollection<Tag> _Tags;
 		public SPlusCollection<Tag> Tags 
 		{
@@ -157,7 +157,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _Tags; 
 			}
 		}
-				public void DeleteTag(Tag obj) => Object.DeleteTag(obj.Object);
+		public void DeleteTag(Tag obj) => Object.DeleteTag(obj.Object);
 				SPlusCollection<ProgrammeOfStudy> _ProgrammesOfStudy;
 		public SPlusCollection<ProgrammeOfStudy> ProgrammesOfStudy 
 		{
@@ -168,7 +168,7 @@ namespace UvA.SPlusTools.Data.Entities
 				return _ProgrammesOfStudy; 
 			}
 		}
-				public void DeleteProgrammeOfStudy(ProgrammeOfStudy obj) => Object.DeleteProgrammeOfStudy(obj.Object);
+		public void DeleteProgrammeOfStudy(ProgrammeOfStudy obj) => Object.DeleteProgrammeOfStudy(obj.Object);
 		
 	}
 }

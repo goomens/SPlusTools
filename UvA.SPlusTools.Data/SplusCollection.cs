@@ -61,7 +61,8 @@ namespace UvA.SPlusTools.Data
         {
             int c = Count;
             for (int z = 0; z < c; z++)
-                Source.Remove(this[0].Object);
+                if (Source.Count > 0) // Not sure why this is needed
+                    Source.Remove(this[0].Object);
         }
 
         public bool Contains(T item)
