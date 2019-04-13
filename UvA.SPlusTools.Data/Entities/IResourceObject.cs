@@ -30,7 +30,7 @@ namespace UvA.SPlusTools.Data.Entities
         Department Department { get; set; }
         SPlusCollection<Tag> Tags { get; }
     }
-
+    
     public partial class StaffMember : IResourceObject
     {
         IEnumerable<IResourceObject> IResourceObject.AvoidConcurrencyWith
@@ -40,6 +40,12 @@ namespace UvA.SPlusTools.Data.Entities
                 return AvoidConcurrencyWith;
             }
         }
+
+        public SPlusCollection<Activity> GetAllocatedActivities()
+            => new SPlusCollection<Activity>(College, Object.ActivitiesAllocatedTo());
+
+        public SPlusCollection<Activity> GetLinkedActivities()
+            => new SPlusCollection<Activity>(College, Object.ActivitiesLinkedTo());
     }
 
     public partial class StudentSet : IResourceObject
@@ -51,6 +57,12 @@ namespace UvA.SPlusTools.Data.Entities
                 return AvoidConcurrencyWith;
             }
         }
+
+        public SPlusCollection<Activity> GetAllocatedActivities()
+            => new SPlusCollection<Activity>(College, Object.ActivitiesAllocatedTo());
+
+        public SPlusCollection<Activity> GetLinkedActivities()
+            => new SPlusCollection<Activity>(College, Object.ActivitiesLinkedTo());
     }
 
     public partial class Location : IResourceObject
@@ -62,5 +74,11 @@ namespace UvA.SPlusTools.Data.Entities
                 return AvoidConcurrencyWith;
             }
         }
+
+        public SPlusCollection<Activity> GetAllocatedActivities()
+            => new SPlusCollection<Activity>(College, Object.ActivitiesAllocatedTo());
+
+        public SPlusCollection<Activity> GetLinkedActivities()
+            => new SPlusCollection<Activity>(College, Object.ActivitiesLinkedTo());
     }
 }

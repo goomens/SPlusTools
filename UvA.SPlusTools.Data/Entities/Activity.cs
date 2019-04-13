@@ -93,6 +93,16 @@ namespace UvA.SPlusTools.Data.Entities
             return IsScheduled;
         }
 
+        public void SetScheduledPeriods(DateTime[] dates)
+        {
+            SetScheduledPeriods(dates.Select(College.DateToPeriod).ToArray());
+        }
+
+        public void SetScheduledPeriods(int[] startPeriods)
+        {
+            Object.SetScheduledPeriods(startPeriods.Cast<object>().ToArray(), false);
+        }
+
         public IEnumerable<DateTime> ScheduledStartDates => IsScheduled ? ((object[])Object.ScheduledStartDateTimes).Cast<DateTime>() : new DateTime[0];
 
         public DateTime StartDate
