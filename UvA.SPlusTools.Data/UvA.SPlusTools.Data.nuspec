@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UvA.SPlusTools.Data</id>
+    <version>0.1.1</version>
+    <title>UvA.SPlusTools.Data</title>
+    <authors>UvA-FNWI</authors>
+    <owners>UvA-FNWI</owners>
+    <projectUrl>https://github.com/goomens/SPlusTools</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Tools for interfacing with Syllabus+ from .NET</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags></tags>
+  </metadata>
+</package>
