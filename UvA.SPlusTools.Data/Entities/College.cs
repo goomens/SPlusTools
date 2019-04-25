@@ -10,6 +10,10 @@ namespace UvA.SPlusTools.Data.Entities
     public partial class College : ITimeObject
     {
         internal dynamic Object { get; private set; }
+
+        /// <summary>
+        /// Length of a scheduling period, in minutes
+        /// </summary>
         public int PeriodLength { get; private set; }
 
         public TimeSpan StartTime { get; private set; }

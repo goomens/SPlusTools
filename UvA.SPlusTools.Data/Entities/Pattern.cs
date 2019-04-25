@@ -92,7 +92,7 @@ namespace UvA.SPlusTools.Data.Entities
         }
 
         /// <summary>
-        /// Sets the pattern to be a continuous range
+        /// Sets the pattern to be a continuous range. For scheduling an activity, end time should be just after start time
         /// </summary>
         /// <param name="day">Day of week</param>
         /// <param name="startTime">Start time</param>
@@ -103,7 +103,7 @@ namespace UvA.SPlusTools.Data.Entities
             PatternAsArray = Tools.Range(0, College.PeriodsPerDay * College.DaysPerWeek - 1)
                 .Select(p => p >= dayIndex * College.PeriodsPerDay && p < (dayIndex + 1) * College.PeriodsPerDay
                     && College.PeriodToTime(p - dayIndex * College.PeriodsPerDay) >= startTime
-                    && College.PeriodToTime(p - dayIndex * College.PeriodsPerDay) < endTime).ToArray();
+                    && College.PeriodToTime(p - dayIndex * College.PeriodsPerDay) <= startTime).ToArray();
         }
     }
 }
