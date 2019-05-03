@@ -63,7 +63,15 @@ namespace UvA.SPlusTools.Data.Entities
         public void Disconnect() => Object.Application.SDB.Disconnect();
 
         public void Save(string path) => Object.Application.SaveImage(path);
-        public void Quit() => Object.Application.KillImage();
+        public void Quit()
+        {
+            try
+            {
+                Object.Application.KillImage(); // this always throws an exception
+            }
+            catch { }
+        }
+            
 
         public void Writeback()
         {
