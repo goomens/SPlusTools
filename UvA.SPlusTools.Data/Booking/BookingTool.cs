@@ -13,6 +13,7 @@ namespace UvA.SPlusTools.Data.Booking
     {
         public int PeriodsPerDay { get; set; }
         public int WeeksPerYear { get; set; }
+        public int DaysPerWeek { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public int PeriodLength { get; private set; }

@@ -12,6 +12,7 @@ namespace UvA.SPlusTools.Data
         int PeriodLength { get; }
         DateTime StartDate { get; }
         int PeriodsPerDay { get; }
+        int DaysPerWeek { get; }
     }
 
     public static class TimeObjectExtensions
@@ -43,7 +44,10 @@ namespace UvA.SPlusTools.Data
 
         public static int DateToPeriod(this ITimeObject o, DateTime date)
         {
-            return (int)Math.Floor(date.Subtract(o.StartDate).TotalDays) * o.PeriodsPerDay + (date.TimeOfDay == TimeSpan.FromDays(0) ? 0 : o.TimeToPeriod(date.TimeOfDay));
+            var weeks = (int)Math.Floor(Math.Floor(date.Subtract(o.StartDate).TotalDays) / 7);
+            var rem = (int)Math.Floor(date.Subtract(o.StartDate).TotalDays) % 7;
+            var days = weeks * o.DaysPerWeek + rem;
+            return days * o.PeriodsPerDay + (date.TimeOfDay == TimeSpan.FromDays(0) ? 0 : o.TimeToPeriod(date.TimeOfDay));
         }
 
         /// <summary>

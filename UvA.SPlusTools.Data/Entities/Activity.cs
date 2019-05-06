@@ -93,6 +93,20 @@ namespace UvA.SPlusTools.Data.Entities
             return IsScheduled;
         }
 
+        /// <summary>
+        /// Sets allocated week pattern and days. Unclear what this actually dues
+        /// </summary>
+        /// <param name="pat">Week pattern</param>
+        /// <param name="days">Array of days</param>
+        public void SetAllocatedDays(WeekInYearPattern pat, DayOfWeek[] days)
+        {
+            Object.SetAllocatedDays(pat.Object, days.Select(d => d.ToSplusDay()).Cast<object>().ToArray());
+        }
+
+        /// <summary>
+        /// Sets the scheduled periods. Overrides any constraints
+        /// </summary>
+        /// <param name="dates">Dates to schedule the activity at</param>
         public void SetScheduledPeriods(DateTime[] dates)
         {
             SetScheduledPeriods(dates.Select(College.DateToPeriod).ToArray());
