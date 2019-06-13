@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UvA.Utilities
 {
-    public static class DataExtensions
+    public static class CollectionExtensions
     {
         /// <summary>
         /// Converts a list of objects to a separated string

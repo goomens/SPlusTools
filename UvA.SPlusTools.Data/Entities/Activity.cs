@@ -42,6 +42,13 @@ namespace UvA.SPlusTools.Data.Entities
         /// </summary>
         public ResourceRequirement<StaffMember> StaffRequirement { get { return _StaffRequirement = _StaffRequirement ?? new ResourceRequirement<StaffMember>(this); } }
 
+        ResourceRequirement<StudentSet> _StudentSetRequirement;
+        /// <summary>
+        /// Describes the student set requirement of an Activity
+        /// Note: changes are only written to S+ when the Set method is called
+        /// </summary>
+        public ResourceRequirement<StudentSet> StudentSetRequirement { get { return _StudentSetRequirement = _StudentSetRequirement ?? new ResourceRequirement<StudentSet>(this); } }
+
         public TimeSpan DurationTime { get { return TimeSpan.FromMinutes(Duration * College.PeriodLength); } set { Duration = (int)Math.Ceiling(value.TotalMinutes / College.PeriodLength); } }
 
         Dictionary<ResourceType, SPlusCollection<Suitability>> _Suitabilities;
@@ -154,10 +161,11 @@ namespace UvA.SPlusTools.Data.Entities
             act.SaveSuitabilities(ResourceType.Location);
             StaffSuitabilities.ForEach(s => act.StaffSuitabilities.Add(s));
             act.SaveSuitabilities(ResourceType.Staff);
+            Tags.ForEach(act.Tags.Add);
             if (copyStaff)
             {
                 StaffRequirement.Resources.ForEach(r => act.StaffRequirement.Resources.Add(r));
-                StaffRequirement.Set(ResourceRequirementType.Preset);
+                act.StaffRequirement.Set(ResourceRequirementType.Preset);
             }
             return act;
         }
