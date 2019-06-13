@@ -10,5 +10,6 @@
 	Property("PlannedSize", "int");
 	RefProperty("WeekPattern", "WeekInYearPattern");
 	Collection("SameTimeActivities", "Activity");
+	Collection("StudentSets", "StudentSet");
 #>
 <#@ include file=".\BaseEnd.ttinclude" #>

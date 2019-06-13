@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>UvA.SPlusTools.Data</id>
-    <version>0.1.3</version>
+    <version>0.1.4</version>
     <title>UvA.SPlusTools.Data</title>
     <authors>UvA-FNWI</authors>
     <owners>UvA-FNWI</owners>
     <projectUrl>https://github.com/goomens/SPlusTools</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Tools for interfacing with Syllabus+ from .NET</description>
-    <releaseNotes>Fix date/period conversation for 6-day weeks</releaseNotes>
+    <releaseNotes>Fix activity studentsets, copy activities</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags></tags>
   </metadata>

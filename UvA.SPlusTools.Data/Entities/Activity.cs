@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UvA.Utilities;
 
 namespace UvA.SPlusTools.Data.Entities
 {
@@ -40,13 +41,6 @@ namespace UvA.SPlusTools.Data.Entities
         /// Note: changes are only written to S+ when the Set method is called
         /// </summary>
         public ResourceRequirement<StaffMember> StaffRequirement { get { return _StaffRequirement = _StaffRequirement ?? new ResourceRequirement<StaffMember>(this); } }
-
-        ResourceRequirement<StudentSet> _StudentSetRequirement;
-        /// <summary>
-        /// Describes the student set requirement of an Activity
-        /// Note: changes are only written to S+ when the Set method is called
-        /// </summary>
-        public ResourceRequirement<StudentSet> StudentSetRequirement { get { return _StudentSetRequirement = _StudentSetRequirement ?? new ResourceRequirement<StudentSet>(this); } }
 
         public TimeSpan DurationTime { get { return TimeSpan.FromMinutes(Duration * College.PeriodLength); } set { Duration = (int)Math.Ceiling(value.TotalMinutes / College.PeriodLength); } }
 
@@ -127,6 +121,45 @@ namespace UvA.SPlusTools.Data.Entities
                 SuggestedDaysInWeek = new DayOfWeek[] { value.DayOfWeek };
                 WeekPattern = new WeekInYearPattern(College) { Weeks = new int[] { College.GetWeek(value) } };
             }
+        }
+
+        /// <summary>
+        /// Creates a copy of the activity with all fields, including studentsets and staff/location suitabilities
+        /// </summary>
+        /// <param name="copyStaff">If <c>true</c>, include preset staff</param>
+        /// <returns></returns>
+        public Activity Copy(bool copyStaff = true)
+        {
+            var act = new Activity(College)
+            {
+                Name = Name,
+                Description = Description,
+                NamedAvailability = NamedAvailability,
+                SuggestedDaysInWeek = SuggestedDaysInWeek,
+                SuggestedStartTime = SuggestedStartTime,
+                UserText1 = UserText1,
+                UserText2 = UserText2,
+                UserText3 = UserText3,
+                UserText4 = UserText4,
+                UserText5 = UserText5,
+                Duration = Duration,
+                ActivityType = ActivityType,
+                Department = Department,
+                Module = Module,
+                PlannedSize = PlannedSize,
+                Zone = Zone
+            };
+            StudentSets.ForEach(act.StudentSets.Add);
+            LocationSuitabilities.ForEach(s => act.LocationSuitabilities.Add(s));
+            act.SaveSuitabilities(ResourceType.Location);
+            StaffSuitabilities.ForEach(s => act.StaffSuitabilities.Add(s));
+            act.SaveSuitabilities(ResourceType.Staff);
+            if (copyStaff)
+            {
+                StaffRequirement.Resources.ForEach(r => act.StaffRequirement.Resources.Add(r));
+                StaffRequirement.Set(ResourceRequirementType.Preset);
+            }
+            return act;
         }
 
         #region Request booking

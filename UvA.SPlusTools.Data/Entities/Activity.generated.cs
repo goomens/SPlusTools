@@ -139,6 +139,16 @@ namespace UvA.SPlusTools.Data.Entities
 				return _SameTimeActivities; 
 			}
 		}
+				SPlusCollection<StudentSet> _StudentSets;
+		public SPlusCollection<StudentSet> StudentSets 
+		{
+			get 
+			{
+				if (_StudentSets == null)
+					_StudentSets = new SPlusCollection<StudentSet>(College, Object.StudentSets); 
+				return _StudentSets; 
+			}
+		}
 		
 	}
 }
