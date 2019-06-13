@@ -19,5 +19,21 @@ namespace UvA.SPlusTools.Data.Entities
 		}
 
 
+		WeekInYearPattern _WeekPattern;
+		public WeekInYearPattern WeekPattern 
+		{
+			get 
+			{
+				if (_WeekPattern == null)
+									_WeekPattern = new WeekInYearPattern(College, Object.WeekPattern); 
+								return _WeekPattern; 
+			}
+			set 
+			{
+			    _WeekPattern = value;
+				Object.WeekPattern = value == null ? null : value.Object;
+			}
+		}
+		
 	}
 }

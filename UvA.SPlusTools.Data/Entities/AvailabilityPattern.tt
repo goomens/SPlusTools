@@ -1,5 +1,5 @@
 ﻿<#@ include file=".\BaseStart.ttinclude" #>
 <# 
-	
+	RefProperty("WeekPattern", "WeekInYearPattern");
 #>
 <#@ include file=".\BaseEnd.ttinclude" #>
