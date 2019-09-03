@@ -6,5 +6,6 @@
 	RefProperty("NamedAvailability", "AvailabilityPattern", "AvailabilityPattern");
     Collection("AvoidConcurrencyWith", "Location");
 	Collection("SharedWith", "Department", "SharedWithDepartments");
+	Collection("Suitabilities", "Suitability");
 #>
 <#@ include file=".\BaseEnd.ttinclude" #>

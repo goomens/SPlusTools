@@ -91,6 +91,16 @@ namespace UvA.SPlusTools.Data.Entities
 				return _SharedWith; 
 			}
 		}
+				SPlusCollection<Suitability> _Suitabilities;
+		public SPlusCollection<Suitability> Suitabilities 
+		{
+			get 
+			{
+				if (_Suitabilities == null)
+					_Suitabilities = new SPlusCollection<Suitability>(College, Object.Suitabilities); 
+				return _Suitabilities; 
+			}
+		}
 		
 	}
 }
