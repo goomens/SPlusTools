@@ -11,5 +11,7 @@
 	RefProperty("WeekPattern", "WeekInYearPattern");
 	Collection("SameTimeActivities", "Activity");
 	Collection("StudentSets", "StudentSet");
+	Property("WhenScheduled", "DateTime");
+	Property("WhoScheduled", "string");
 #>
 <#@ include file=".\BaseEnd.ttinclude" #>

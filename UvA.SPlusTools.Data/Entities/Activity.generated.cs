@@ -149,6 +149,16 @@ namespace UvA.SPlusTools.Data.Entities
 				return _StudentSets; 
 			}
 		}
+				public DateTime WhenScheduled 
+		{
+			get { return Object.WhenScheduled; }
+			set { Object.WhenScheduled = value; }
+		}
+				public string WhoScheduled 
+		{
+			get { return Object.WhoScheduled; }
+			set { Object.WhoScheduled = value; }
+		}
 		
 	}
 }
